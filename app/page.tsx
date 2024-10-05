@@ -33,6 +33,9 @@ export default function App() {
 
   return (
     <main>
+      <h1>Welcome Shiven!</h1>
+      Please showcase your RenAi work here!
+      
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
