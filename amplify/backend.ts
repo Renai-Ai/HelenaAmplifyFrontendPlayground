@@ -1,7 +1,7 @@
 import { defineBackend } from "@aws-amplify/backend";
 import { auth } from "./auth/resource";
 import { data } from "./data/resource";
-import { HelloWorldLambdaStack } from "./custom-functions/resources";
+import { HelenaHelloWorldLambdaStack } from "./custom-functions/resources";
 /**
  * @see https://docs.amplify.aws/react/build-a-backend/ to add storage, functions, and more
  */
@@ -11,8 +11,8 @@ const backend = defineBackend({
 });
 
 // Add the HelloWorld custom Lambda stack to the backend
-new HelloWorldLambdaStack(
-  backend.createStack("HelloWorldLambdaStack"),
-  "helloWorldLambdaResource",
+new HelenaHelloWorldLambdaStack(
+  backend.createStack("HelenaHelloWorldLambdaStack"),
+  "helenaHelloWorldLambdaResource",
   {}
 );
