@@ -34,6 +34,7 @@ export default function App() {
   return (
     <main>
       <h1>Hello, Saugat!</h1>
+      We can now deploy lambda functions that use Python in the backend! Hooray!!!
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
