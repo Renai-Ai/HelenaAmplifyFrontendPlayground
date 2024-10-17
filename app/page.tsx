@@ -31,10 +31,22 @@ export default function App() {
     });
   }
 
+
+const callFunction = async () => {
+  const headers: Headers = new Headers()
+  // Add a few headers
+  headers.set('Content-Type', 'application/json')
+  headers.set('Accept', 'application/json')
+  // Add a custom header, which we can use to check
+  headers.set('X-Custom-Header', 'CustomValue')
+  
+};
+
   return (
     <main>
       <h1>Hello, Saugat!</h1>
-      We can now deploy lambda functions that use Python in the backend! Hooray!!!
+      We can now deploy lambda functions that use Python in the backend! Hooray!!! Test
+      <button onClick={callFunction}>Call Lambda Function</button>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
