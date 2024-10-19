@@ -31,7 +31,7 @@ export default function App() {
     });
   }
 
-  function MyButton Pic(){
+  function MyButton(){
     return(
       <button>Test Button</button>
     );
