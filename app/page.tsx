@@ -15,6 +15,11 @@ const client = generateClient<Schema>();
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
+  
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
+
   function listTodos() {
     client.models.Todo.observeQuery().subscribe({
       next: (data) => setTodos([...data.items]),
@@ -33,12 +38,17 @@ export default function App() {
 
   return (
     <main>
-      <h1>This is the development version</h1>
+      <h1>This is the development version.</h1>
+      Today is October, 17th of 2024.
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+          <li 
+            onClick={() => deleteTodo(todo.id)}
+            key={todo.id}>
+              {todo.content}
+          </li>
         ))}
       </ul>
       <div>
