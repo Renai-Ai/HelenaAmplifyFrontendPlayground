@@ -55,7 +55,7 @@ export default function App() {
         </a>
       </div>
       <div>
-      <MyButton></MyButton>
+      <MyButton />
       </div>
     </main>
   );
