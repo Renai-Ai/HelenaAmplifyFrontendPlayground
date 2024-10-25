@@ -38,8 +38,16 @@ export default function App() {
 
   return (
     <main>
+    <h1 className="text-xl5464 font-bold underline">
+      Hello world 2!
+    </h1>
       <h1>This is the development version.</h1>
-      Today is October, 17th of 2024.
+      Today is October 23rd of 2024. Call the echo handler:
+      <button
+        onClick={async () => {
+          const {data, errors} = await client.queries.echo({ content: "Hello, world!" });
+          alert(data?.content || errors?.map((e) => e.message).join("\n"));
+        }}> Send Hello </button>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
