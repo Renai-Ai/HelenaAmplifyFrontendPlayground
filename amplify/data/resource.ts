@@ -4,6 +4,10 @@ const echoHandler = defineFunction({
   entry: './echo-handler/handler.ts'
 })
 
+const echoPythonHandler = defineFunction({
+  entry: './echo-python-handler/handlerPython.ts'
+})
+
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
 adding a new "isDone" field as a boolean. The authorization rule below
@@ -31,9 +35,27 @@ const schema = a.schema({
     })
     // return type of the query
     .returns(a.ref('EchoResponse'))
-    // only allow signed-in users to call this API
     .authorization(allow => [allow.publicApiKey()])
-    .handler(a.handler.function(echoHandler))
+    .handler(a.handler.function(echoHandler)),
+
+
+    // 1. Define your return type as a custom type
+    EchoPythonResponse: a.customType({
+      content: a.string(),
+      executionDuration: a.float()
+    }),
+    // 2. Define your query with the return type and, optionally, arguments
+    echoPython: a
+    .query()
+    // arguments that this query accepts
+    .arguments({
+      content: a.string()
+    })
+    // return type of the query
+    .returns(a.ref('EchoPythonResponse'))
+    .authorization(allow => [allow.publicApiKey()])
+    .handler(a.handler.function(echoPythonHandler)),
+
 }
 );
 

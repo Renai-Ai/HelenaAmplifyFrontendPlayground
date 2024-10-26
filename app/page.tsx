@@ -48,6 +48,14 @@ export default function App() {
           const {data, errors} = await client.queries.echo({ content: "Hello, world!" });
           alert(data?.content || errors?.map((e) => e.message).join("\n"));
         }}> Send Hello </button>
+
+
+      <button
+        onClick={async () => {
+          const {data, errors} = await client.queries.echoPython({ content: "Hello, Python world!" });
+          alert(data?.content || errors?.map((e) => e.message).join("\n"));
+        }}> Send Hello Python </button>
+
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
