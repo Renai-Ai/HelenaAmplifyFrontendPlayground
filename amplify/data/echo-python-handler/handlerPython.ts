@@ -11,7 +11,7 @@ export const handler: Schema["echoPython"]["functionHandler"] = async (event, co
   var result = JSON.stringify(response);
   var JSONresult = JSON.parse(result);
   return {
-    content: `Echoing Python content: ${JSONresult.message}`,
+    content: `Echoing Python content [changed 2024-Nov-03]: ${JSONresult.message}`,
     executionDuration: performance.now() - start
   };
 };

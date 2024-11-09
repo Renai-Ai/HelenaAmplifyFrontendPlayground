@@ -45,7 +45,7 @@ export default function App() {
       Today is October 23rd of 2024. Call the echo handler:
       <button
         onClick={async () => {
-          const {data, errors} = await client.queries.echo({ content: "Hello, world!" });
+          const {data, errors} = await client.queries.echo({ content: "Hello, from the frontend!" });
           alert(data?.content || errors?.map((e) => e.message).join("\n"));
         }}> Send Hello </button>
 

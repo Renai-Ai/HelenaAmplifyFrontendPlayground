@@ -1,10 +1,12 @@
 import { type ClientSchema, a, defineData, defineFunction } from "@aws-amplify/backend";
 
 const echoHandler = defineFunction({
+  name: 'echoHandler',
   entry: './echo-handler/handler.ts'
 })
 
 const echoPythonHandler = defineFunction({
+  name: 'echoPythonHandler',
   entry: './echo-python-handler/handlerPython.ts'
 })
 
