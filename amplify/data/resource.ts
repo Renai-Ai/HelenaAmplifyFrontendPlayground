@@ -1,4 +1,14 @@
-import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { type ClientSchema, a, defineData, defineFunction } from "@aws-amplify/backend";
+
+const echoHandler = defineFunction({
+  name: 'echoHandler',
+  entry: './echo-handler/handler.ts'
+})
+
+const echoPythonHandler = defineFunction({
+  name: 'echoPythonHandler',
+  entry: './echo-python-handler/handlerPython.ts'
+})
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -12,7 +22,44 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-});
+
+  // 1. Define your return type as a custom type
+  EchoResponse: a.customType({
+      content: a.string(),
+      executionDuration: a.float()
+    }),
+    // 2. Define your query with the return type and, optionally, arguments
+    echo: a
+    .query()
+    // arguments that this query accepts
+    .arguments({
+      content: a.string()
+    })
+    // return type of the query
+    .returns(a.ref('EchoResponse'))
+    .authorization(allow => [allow.publicApiKey()])
+    .handler(a.handler.function(echoHandler)),
+
+
+    // 1. Define your return type as a custom type
+    EchoPythonResponse: a.customType({
+      content: a.string(),
+      executionDuration: a.float()
+    }),
+    // 2. Define your query with the return type and, optionally, arguments
+    echoPython: a
+    .query()
+    // arguments that this query accepts
+    .arguments({
+      content: a.string()
+    })
+    // return type of the query
+    .returns(a.ref('EchoPythonResponse'))
+    .authorization(allow => [allow.publicApiKey()])
+    .handler(a.handler.function(echoPythonHandler)),
+
+}
+);
 
 export type Schema = ClientSchema<typeof schema>;
 
@@ -25,6 +72,7 @@ export const data = defineData({
     },
   },
 });
+
 
 /*== STEP 2 ===============================================================
 Go to your frontend source code. From your client-side code, generate a
