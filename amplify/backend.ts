@@ -5,5 +5,4 @@ import { data } from "./data/resource.js";
 const backend = defineBackend({
   auth,
   data,
-  myFirstFunction,
 });
