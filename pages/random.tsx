@@ -20,7 +20,7 @@ const Random = () => {
           <p className="mx-auto  text-xl font-normal leading-relaxed text-gray-600 dark:text-gray-300 lg:w-2/3">
               See tutorial series at &nbsp;
               <a href="https://youtube.com/playlist?list=PLXHusJiEgw3yXzR0HFwp0CQfH94qOkqDC&si=wb4Sd7f4-Y3g5Yji" className="underline">
-              Full Stack Engineering Tutorial</a>
+              Full Stack Engineering Tutorials</a>
             </p>
             </div>
         </section>
