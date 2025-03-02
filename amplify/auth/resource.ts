@@ -11,10 +11,10 @@ export const auth = defineAuth({
       google: {
         clientId: secret("GOOGLE_CLIENT_ID"),
         clientSecret: secret("GOOGLE_CLIENT_SECRET"), 
-        scopes: ['email']
+        scopes: ['profile']
       },
-      callbackUrls:["https://helena-demo-ravi.renai.ai/random"],
-      logoutUrls: ["https://helena-demo-ravi.renai.ai/random"]
+      callbackUrls:['http://localhost:3000',"https://helena-demo-ravi.renai.ai/random","https://helena-demo-ravi.renai.ai"],
+      logoutUrls: ['http://localhost:3000',"https://helena-demo-ravi.renai.ai/random","https://helena-demo-ravi.renai.ai"]
     }
   },
 });
