@@ -13,8 +13,8 @@ export const auth = defineAuth({
         clientSecret: secret("GOOGLE_CLIENT_SECRET"), 
         scopes: ['profile']
       },
-      callbackUrls:['http://localhost:3000',"https://helena-demo-ravi.renai.ai/random","https://helena-demo-ravi.renai.ai"],
-      logoutUrls: ['http://localhost:3000',"https://helena-demo-ravi.renai.ai/random","https://helena-demo-ravi.renai.ai"]
+      callbackUrls:['http://localhost:3000','https://helena-demo-ravi.renai.ai/random','https://helena-demo-ravi.renai.ai'],
+      logoutUrls: ['http://localhost:3000','https://helena-demo-ravi.renai.ai/random','https://helena-demo-ravi.renai.ai']
     }
   },
 });
