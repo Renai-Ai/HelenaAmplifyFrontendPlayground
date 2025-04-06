@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import SayHelloPythonButton from "@/components/SayHelloPythonButton";
 import TodoDemo from "@/components/TodoDemo";
 import TitleSection from "@/components/TitleSection";
+import StoryGenerator from "@/components/WordGenerator";
 
 const Random = () => {
     return (
@@ -37,6 +38,7 @@ const Random = () => {
           <TodoDemo />
            </div>
         <Footer />
+        <StoryGenerator/>
       </div>
     );
 

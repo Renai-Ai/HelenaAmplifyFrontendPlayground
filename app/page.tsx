@@ -3,6 +3,7 @@ import Main from "@/components/Main";
 import Footer from "@/components/Footer";
 import SayHelloButton from "@/components/SayHelloButton";
 import "@/styles/globals.css";
+import StoryGenerator from "@/components/WordGenerator";
 
 const App = () => {
     return (
