@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState, useRef } from 'react';
+import WebSocket from "ws";
+
 
 interface StoryResponse {
   word: string;
@@ -124,6 +126,39 @@ const StoryGenerator: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ length }),
+      });
+      const response1=fetch(`${BASE_URL}/api/story`,{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({length})
+      });
+      const response2=fetch(`${BASE_URL}/api/story`,{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({length})
+      })
+      console.log(await Promise.all([response1,response2]))
+      console.log(response)
+    
+      const url =
+        "wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17";
+      const ws = new WebSocket(url, {
+        headers: {
+          Authorization: "Bearer " + process.env.OPENAI_API_KEY,
+          "OpenAI-Beta": "realtime=v1",
+        },
+      });
+
+      ws.on("open", function open() {
+        console.log("Connected to server.");
+      });
+
+      ws.on("message", function incoming(message) {
+        console.log(JSON.parse(message.toString()));
       });
 
 

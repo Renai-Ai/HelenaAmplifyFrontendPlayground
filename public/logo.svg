@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="28" font-family="Arial" font-weight="bold" font-size="24" fill="#FB923C">Deep</text>
+  <text x="70" y="28" font-family="Arial" font-weight="bold" font-size="24" fill="white">TLDR</text>
+  <circle cx="135" cy="20" r="5" fill="#FB923C"/>
+</svg> 
